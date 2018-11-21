@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Upload Multiple Files to MySQL</title>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"></script>
+</head>
+
+<body>
+<div class="container h-100">
+    <div class="row h-100 justify-content-center align-items-center">
+        <div class="col-md-7 table-responsive">
+            <h2>Uploaded Files</h2>
+            <table class="table" id="customerTable">
+                <thead>
+                <tr>
+                    <th>No</th>
+                    <th>Filename</th>
+                    <th>Download</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr th:each="file, rowStat: ${files}">
+                    <td th:text="${rowStat.count}">1</td>
+                    <td th:text="${file.filename}">File-Name</td>
+                    <td><a th:href="${file.url}">Link</a></td>
+                </tr>
+                </tbody>
+            </table>
+            <div>
+                <a class="btn btn-light btn-block" href="/" role="button">Back to Upload Form</a>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>
